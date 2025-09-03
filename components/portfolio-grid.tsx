@@ -143,11 +143,11 @@ export function PortfolioGrid() {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {portfolioItems.map((item) => (
-          <Card
+          <div
             key={item.id}
-            className='group cursor-pointer overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1'
+            className='group cursor-pointer overflow-hidden hover:shadow-lg transition-all duration-300'
             onClick={() => handleItemClick(item)}
           >
             <div className='aspect-video overflow-hidden bg-muted relative'>
@@ -194,7 +194,7 @@ export function PortfolioGrid() {
                 )}
               </div>
             </div>
-          </Card>
+          </div>
         ))}
       </div>
 

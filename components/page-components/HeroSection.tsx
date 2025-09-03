@@ -152,7 +152,7 @@ const GlowingLine: React.FC<GlowingLineProps> = ({ x, delay }) => {
       style={{
         left: `${x}%`,
         width: '1px',
-        height: isVisible ? '200vh' : '0',
+        height: isVisible ? '450vh' : '0',
         backgroundColor: 'rgba(0,0,0,0.2)',
         boxShadow: isVisible
           ? '0 0 8px rgba(255, 255, 255, 0.3), 0 0 16px rgba(255, 255, 255, 0.2)'
@@ -249,8 +249,8 @@ const HeroSection: React.FC = () => {
       </div>
 
       {/* Glowing Vertical Lines */}
-      <GlowingLine x={isLarge ? 34 : 5} delay={200} />
-      <GlowingLine x={isLarge ? 66 : 95} delay={400} />
+      <GlowingLine x={isLarge ? 33.3333 : 5} delay={200} />
+      <GlowingLine x={isLarge ? 66.6666 : 95} delay={400} />
 
       <div className='max-w-6xl mx-auto relative z-10'>
         <div className='text-center'>
