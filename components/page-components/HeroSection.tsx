@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   const variants = {
     default: 'bg-neutral-900 text-white hover:bg-neutral-800',
     outline:
-      'border border-neutral-300 bg-transparent text-neutral-900 hover:bg-neutral-100',
+      'border border-dashed border-neutral-300 bg-transparent text-neutral-900 hover:bg-neutral-100',
   }
 
   const sizes = {
@@ -123,7 +123,7 @@ const AnimatedHorizontalLine: React.FC<{
         stroke='black'
         strokeOpacity='0.15'
         strokeWidth='1'
-        strokeDasharray='100'
+        strokeDasharray='1,0.5'
         strokeDashoffset={isVisible ? 0 : 100}
         style={{
           transition: `stroke-dashoffset ${duration}s ease-in-out`,
@@ -153,7 +153,9 @@ const GlowingLine: React.FC<GlowingLineProps> = ({ x, delay }) => {
         left: `${x}%`,
         width: '1px',
         height: isVisible ? '450vh' : '0',
-        backgroundColor: 'rgba(0,0,0,0.2)',
+        background: isVisible
+          ? 'repeating-linear-gradient(to bottom, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 5px, transparent 5px, transparent 10px)'
+          : 'none',
         boxShadow: isVisible
           ? '0 0 8px rgba(255, 255, 255, 0.3), 0 0 16px rgba(255, 255, 255, 0.2)'
           : 'none',
@@ -234,7 +236,7 @@ const HeroSection: React.FC = () => {
       <div className='relative'>
         <div className='absolute left-1/2 top-0 -translate-x-1/2 w-[105%] h-px bg-black/10 z-50' />
       </div>
-      <div className='absolute -left-12 -top-12 border w-24 h-24 rounded-full border-black/30 border-r-transparent rotate-45 z-50' />
+      <div className='absolute -left-12 -top-12 border border-dashed w-24 h-24 rounded-full border-black/30 border-r-transparent rotate-45 z-50' />
 
       {/* Background SVG Patterns */}
       <div className='absolute inset-0 '>
