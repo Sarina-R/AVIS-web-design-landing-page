@@ -1,9 +1,9 @@
 import HeroSection from '@/components/page-components/HeroSection'
 // import FeaturesPreview from '@/components/page-components/FeaturesPreview'
 import PortfolioSection from '@/components/page-components/PortfolioSection'
-import BenefitsSection from '@/components/page-components/BenefitsSection'
+// import BenefitsSection from '@/components/page-components/BenefitsSection'
 import FeaturesSection from '@/components/page-components/FeaturesSection'
-import WorkFlowSection from '@/components/page-components/WorkFlowSection'
+// import WorkFlowSection from '@/components/page-components/WorkFlowSection'
 // import TechnologiesSection from '@/components/page-components/TechnologiesSection'
 import OrderFromSection from '@/components/page-components/OrderFromSection'
 import PricingPlansSection from '@/components/page-components/PricingPlansSection'
@@ -18,8 +18,8 @@ export default function HomePage() {
         <PortfolioSection />
         <PricingPlansSection />
         <OrderFromSection />
-        <BenefitsSection />
-        <WorkFlowSection />
+        {/* <BenefitsSection />
+        <WorkFlowSection /> */}
         <FeaturesSection />
         {/* <TechnologiesSection /> */}
         <ContactSection />

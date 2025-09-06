@@ -11,22 +11,22 @@ import {
 
 const FeaturesSection = () => {
   return (
-    <section className='py-24 bg-white'>
-      <div className='max-w-6xl mx-auto px-6'>
-        <div className='text-center mb-20'>
+    <section className=' '>
+      <div className='max-w-6xl mx-auto'>
+        <div className='text-center border-y bg-white z-10 py-20'>
           <h2 className='text-4xl md:text-5xl font-bold mb-6'>
             ویژگی‌های خدمات ما
           </h2>
-          <p className='text-xl text-black/60 max-w-2xl mx-auto'>
+          <p className='text-xl text-black/60 max-w-80 mx-auto'>
             تمام چیزهایی که برای یک وب‌سایت موفق نیاز دارید
           </p>
         </div>
 
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <Smartphone className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <Smartphone className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>طراحی ریسپانسیو</h3>
             </div>
@@ -36,10 +36,10 @@ const FeaturesSection = () => {
             </p>
           </Card>
 
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <Search className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <Search className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>بهینه‌سازی SEO</h3>
             </div>
@@ -49,10 +49,10 @@ const FeaturesSection = () => {
             </p>
           </Card>
 
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <Zap className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <Zap className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>سرعت بالا</h3>
             </div>
@@ -61,10 +61,10 @@ const FeaturesSection = () => {
             </p>
           </Card>
 
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <Lock className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <Lock className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>امنیت بالا</h3>
             </div>
@@ -73,10 +73,10 @@ const FeaturesSection = () => {
             </p>
           </Card>
 
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <Database className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <Database className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>مدیریت محتوا</h3>
             </div>
@@ -85,10 +85,10 @@ const FeaturesSection = () => {
             </p>
           </Card>
 
-          <Card className='p-8 hover:shadow-md transition-all duration-300 hover:-translate-y-1 border-0 bg-white'>
+          <Card className='p-8 transition-all duration-300 border-x bg-white'>
             <div className='flex items-center gap-4 mb-6'>
-              <div className='w-12 h-12 bg-black/10 flex items-center justify-center'>
-                <BarChart3 className='w-6 h-6 text-black' />
+              <div className='w-12 h-12 bg-black rounded-2xl flex items-center justify-center'>
+                <BarChart3 className='w-6 h-6 text-white' />
               </div>
               <h3 className='text-xl font-bold'>آنالیتیکس پیشرفته</h3>
             </div>
