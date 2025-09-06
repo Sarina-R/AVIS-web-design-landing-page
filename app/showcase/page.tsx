@@ -168,7 +168,6 @@ interface ButtonProps {
   children: React.ReactNode
   className?: string
   asChild?: boolean
-  [key: string]: any
 }
 
 const Button = ({
