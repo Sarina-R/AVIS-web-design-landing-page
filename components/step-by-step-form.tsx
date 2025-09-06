@@ -234,54 +234,6 @@ const CartoonCheckbox: React.FC<CartoonCheckboxProps> = ({
   </label>
 )
 
-const CartoonInput: React.FC<React.InputHTMLAttributes<HTMLInputElement>> = ({
-  ...props
-}) => (
-  <input
-    className={`
-      w-full px-4 py-2.5 border border-neutral-200 rounded-xl
-      focus:border-black focus:ring-1 focus:ring-black
-      transition-all duration-200 text-base
-      focus:outline-none placeholder-neutral-400
-      ${props.value && !props.value.toString().trim() ? 'border-red-500' : ''}
-    `}
-    {...props}
-  />
-)
-
-const CartoonTextarea: React.FC<
-  React.TextareaHTMLAttributes<HTMLTextAreaElement>
-> = ({ ...props }) => (
-  <textarea
-    className={`
-      w-full px-4 py-2.5 border border-neutral-200 rounded-xl
-      focus:border-black focus:ring-1 focus:ring-black
-      transition-all duration-200 text-base resize-none
-      focus:outline-none placeholder-neutral-400
-      ${props.value && !props.value.toString().trim() ? 'border-red-500' : ''}
-    `}
-    {...props}
-  />
-)
-
-const CartoonBadge: React.FC<{
-  children: React.ReactNode
-  variant?: 'default' | 'outline'
-}> = ({ children, variant = 'default' }) => {
-  const variants = {
-    default: 'bg-neutral-100 text-black',
-    outline: 'bg-white text-black border border-neutral-200',
-  }
-
-  return (
-    <span
-      className={`px-2.5 py-1 rounded-full text-sm font-medium ${variants[variant]}`}
-    >
-      {children}
-    </span>
-  )
-}
-
 // Main Component
 const StepByStepForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState<number>(1)
@@ -969,7 +921,7 @@ const StepByStepForm: React.FC = () => {
   }
 
   return (
-    <div className='min-h-screen bg-white z-10 relative p-4 sm:p-8 '>
+    <div className='bg-white z-10 relative py-4 sm:p-8 border-y'>
       <div className='max-w-4xl mx-auto'>
         <div className='mb-12'>
           <div className='flex items-center justify-between mb-6'>

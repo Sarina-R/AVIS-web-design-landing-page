@@ -152,7 +152,7 @@ const GlowingLine: React.FC<GlowingLineProps> = ({ x, delay }) => {
       style={{
         left: `${x}%`,
         width: '1px',
-        height: isVisible ? '450vh' : '0',
+        height: isVisible ? '800vh' : '0',
         background: isVisible
           ? 'repeating-linear-gradient(to bottom, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 5px, transparent 5px, transparent 10px)'
           : 'none',
