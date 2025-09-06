@@ -12,6 +12,7 @@ import {
   Globe,
 } from 'lucide-react'
 import './globals.css'
+import Image from 'next/image'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -43,6 +44,9 @@ const samim = localFont({
 export const metadata: Metadata = {
   title: 'خدمات طراحی وبسایت آویس',
   description: 'یک وبسایت ساخته شده با Next.js',
+  icons: {
+    icon: 'https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png',
+  },
 }
 
 export default function RootLayout({
@@ -76,10 +80,16 @@ export default function RootLayout({
           <div className='max-w-6xl mx-auto px-6 py-4'>
             <div className='flex items-center justify-between'>
               <div className='flex items-center gap-3'>
-                <div className='w-8 h-8 bg-black flex items-center justify-center'>
-                  <Globe className='w-5 h-5 text-white' />
+                <div className='w-8 h-8 flex items-center justify-center'>
+                  <Image
+                    src='https://kbgnpdzggogidjwifiuq.supabase.co/storage/v1/object/public/avis/logo/avis-mono-dark.png'
+                    alt='logo'
+                    width={30}
+                    height={30}
+                    className='object-contain invert'
+                  />
                 </div>
-                <span className='text-xl font-bold'>AVIS</span>
+                <span className='text-xl font-bold'>آویس</span>
               </div>
               <div className='hidden md:flex items-center gap-8'>
                 <a
