@@ -14,43 +14,20 @@ import {
   Calculator,
   AlertCircle,
   Star,
-  MessageSquare,
-  DollarSign,
-  CreditCard,
   Info,
-  User,
-  Mail,
-  Phone,
 } from 'lucide-react'
 
 // Interfaces
-interface CartoonCardProps {
+type CartoonCardProps = React.HTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode
   className?: string
   hover?: boolean
-  [key: string]: any
 }
 
-interface CartoonButtonProps {
+type CartoonButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
   variant?: 'primary' | 'outline' | 'success'
   disabled?: boolean
-  onClick?: () => void
-  [key: string]: any
-}
-
-interface CartoonRadioProps {
-  checked: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  children: React.ReactNode
-  name: string
-  value: string
-}
-
-interface CartoonCheckboxProps {
-  checked: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  children: React.ReactNode
 }
 
 interface FormData {
@@ -171,68 +148,6 @@ const CartoonButton: React.FC<CartoonButtonProps> = ({
     </button>
   )
 }
-
-const CartoonRadio: React.FC<CartoonRadioProps> = ({
-  checked,
-  onChange,
-  children,
-  name,
-  value,
-}) => (
-  <label className='flex items-center cursor-pointer group'>
-    <div className='relative flex-shrink-0'>
-      <input
-        type='radio'
-        name={name}
-        value={value}
-        checked={checked}
-        onChange={onChange}
-        className='sr-only'
-        aria-checked={checked}
-      />
-      <div
-        className={`
-          w-5 h-5 border-2 border-neutral-300 rounded
-          transition-all duration-200
-          ${checked ? 'border-black bg-black' : 'bg-white'}
-          group-hover:border-neutral-500
-        `}
-      >
-        {checked && <div className='absolute inset-1 bg-white rounded-sm' />}
-      </div>
-    </div>
-    <div className='ml-3 flex-1'>{children}</div>
-  </label>
-)
-
-const CartoonCheckbox: React.FC<CartoonCheckboxProps> = ({
-  checked,
-  onChange,
-  children,
-}) => (
-  <label className='flex items-center cursor-pointer group'>
-    <div className='relative flex-shrink-0'>
-      <input
-        type='checkbox'
-        checked={checked}
-        onChange={onChange}
-        className='sr-only'
-        aria-checked={checked}
-      />
-      <div
-        className={`
-          w-5 h-5 border-2 border-neutral-300 rounded
-          transition-all duration-200
-          ${checked ? 'border-black bg-black' : 'bg-white'}
-          group-hover:border-neutral-500
-        `}
-      >
-        {checked && <Check className='w-4 h-4 text-white absolute inset-0.5' />}
-      </div>
-    </div>
-    <div className='ml-3 flex-1'>{children}</div>
-  </label>
-)
 
 // Main Component
 const StepByStepForm: React.FC = () => {
