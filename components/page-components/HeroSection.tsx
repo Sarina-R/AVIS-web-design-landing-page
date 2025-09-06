@@ -270,7 +270,7 @@ const HeroSection: React.FC = () => {
             </div>
             {/* Main Title */}
             <h1
-              className={`text-5xl md:text-6xl font-semibold text-neutral-800 pb-8 leading-tight transition-opacity duration-500 ${
+              className={`text-5xl md:text-6xl font-semibold text-neutral-800 pb-8 leading-tight transition-opacity duration-500 max-w-80 sm:max-w-max mx-auto ${
                 titleVisible ? 'opacity-100' : 'opacity-0'
               }`}
             >
