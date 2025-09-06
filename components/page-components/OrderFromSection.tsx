@@ -1,5 +1,5 @@
 import React from 'react'
-import { StepByStepForm } from '../step-by-step-form'
+import StepByStepForm from '../step-by-step-form'
 
 const OrderFromSection = () => {
   return (
