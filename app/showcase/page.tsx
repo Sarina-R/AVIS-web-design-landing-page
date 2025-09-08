@@ -3,6 +3,9 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { ExternalLink, Calendar, Code, Palette, X } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { PortfolioModal } from '@/components/portfolio-modal'
 
 interface PortfolioItem {
   id: string
@@ -14,8 +17,8 @@ interface PortfolioItem {
   completedDate: string
   features: string[]
   liveUrl?: string
-  widthClass?: string // Made optional since we're not using it
-  heightClass?: string // Made optional since we're not using it
+  widthClass?: string
+  heightClass?: string
 }
 
 const portfolioItems: PortfolioItem[] = [
@@ -138,55 +141,6 @@ const portfolioItems: PortfolioItem[] = [
   },
 ]
 
-interface BadgeProps {
-  children: React.ReactNode
-  variant?: 'default' | 'secondary' | 'outline'
-  className?: string
-}
-
-const Badge = ({
-  children,
-  variant = 'default',
-  className = '',
-}: BadgeProps) => {
-  const baseStyles =
-    'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium'
-  const variants = {
-    default: 'bg-neutral-200 text-neutral-800',
-    secondary: 'bg-neutral-300 text-neutral-900',
-    outline: 'border border-neutral-400 bg-white text-neutral-700',
-  }
-
-  return (
-    <span className={`${baseStyles} ${variants[variant]} ${className}`}>
-      {children}
-    </span>
-  )
-}
-
-interface ButtonProps {
-  children: React.ReactNode
-  className?: string
-  asChild?: boolean
-}
-
-const Button = ({
-  children,
-  className = '',
-  asChild = false,
-  ...props
-}: ButtonProps) => {
-  const Component = asChild ? 'div' : 'button'
-  return (
-    <Component
-      className={`inline-flex items-center justify-center px-4 py-2 bg-neutral-900 text-white rounded-lg hover:bg-neutral-700 transition-colors font-medium ${className}`}
-      {...props}
-    >
-      {children}
-    </Component>
-  )
-}
-
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false)
 
@@ -209,160 +163,6 @@ interface PortfolioModalProps {
   onOpenChange: (open: boolean) => void
 }
 
-// Portfolio Modal Component
-const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
-  const isMobile = useMediaQuery('(max-width: 768px)')
-
-  if (!item) return null
-
-  const content = (
-    <div className='space-y-6'>
-      <div className='aspect-video rounded-lg overflow-hidden bg-neutral-100'>
-        <img
-          src={item.image}
-          alt={item.title}
-          className='w-full h-full object-cover '
-        />
-      </div>
-
-      <div className='space-y-4'>
-        <div className='flex items-center gap-2 flex-wrap'>
-          <Badge variant='secondary'>{item.category}</Badge>
-          <div className='flex items-center gap-1 text-sm text-neutral-500'>
-            <Calendar className='w-4 h-4' />
-            {item.completedDate}
-          </div>
-        </div>
-
-        <p className='text-neutral-600 leading-relaxed'>{item.description}</p>
-
-        <div className='space-y-3'>
-          <div className='flex items-center gap-2'>
-            <Code className='w-4 h-4 text-neutral-900' />
-            <span className='font-medium'>تکنولوژی‌های استفاده شده:</span>
-          </div>
-          <div className='flex flex-wrap gap-2'>
-            {item.technologies.map((tech) => (
-              <Badge key={tech} variant='outline' className='text-xs'>
-                {tech}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        <div className='space-y-3'>
-          <div className='flex items-center gap-2'>
-            <Palette className='w-4 h-4 text-neutral-900' />
-            <span className='font-medium'>ویژگی‌های کلیدی:</span>
-          </div>
-          <ul className='space-y-2'>
-            {item.features.map((feature, index) => (
-              <li
-                key={index}
-                className='flex items-start gap-2 text-sm text-neutral-600'
-              >
-                <div className='w-1.5 h-1.5 bg-neutral-900 rounded-full mt-2 flex-shrink-0' />
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {item.liveUrl && (
-          <Button className='w-full' asChild>
-            <a href={item.liveUrl} target='_blank' rel='noopener noreferrer'>
-              مشاهده سایت
-              <ExternalLink className='w-4 h-4 mr-2' />
-            </a>
-          </Button>
-        )}
-      </div>
-    </div>
-  )
-
-  if (isMobile) {
-    return (
-      <AnimatePresence>
-        {open && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className='fixed inset-0 bg-black/50 z-50'
-              onClick={() => onOpenChange(false)}
-            />
-            <motion.div
-              initial={{ y: '100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-              className='fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl z-50 max-h-[90vh] overflow-hidden'
-            >
-              <div className='p-4 border-b border-neutral-200'>
-                <div className='flex items-center justify-between'>
-                  <h2 className='text-lg font-semibold text-right flex-1 text-neutral-900'>
-                    {item.title}
-                  </h2>
-                  <button
-                    onClick={() => onOpenChange(false)}
-                    className='p-2 hover:bg-neutral-200 rounded-full'
-                  >
-                    <X className='w-5 h-5 text-neutral-900' />
-                  </button>
-                </div>
-              </div>
-              <div className='px-4 pb-6 overflow-y-auto max-h-[calc(90vh-80px)]'>
-                {content}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    )
-  }
-
-  return (
-    <AnimatePresence>
-      {open && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className='fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4'
-          onClick={() => onOpenChange(false)}
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className='bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden'
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className='p-6 border-b border-neutral-200'>
-              <div className='flex items-center justify-between'>
-                <h2 className='text-xl font-semibold text-right flex-1 text-neutral-900'>
-                  {item.title}
-                </h2>
-                <button
-                  onClick={() => onOpenChange(false)}
-                  className='p-2 hover:bg-neutral-200 rounded-full'
-                >
-                  <X className='w-5 h-5 text-neutral-900' />
-                </button>
-              </div>
-            </div>
-            <div className='p-6 overflow-y-auto max-h-[calc(90vh-100px)]'>
-              {content}
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  )
-}
-
 const Page = () => {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -380,79 +180,93 @@ const Page = () => {
   }
 
   return (
-    <div className='min-h-screen'>
-      <main className='max-w-6xl mx-auto border px-4 sm:px-0 pt-24'>
+    <div className='min-h-screen dark:bg-neutral-950 border border-black/10  dark:border-white/10 max-w-7xl mx-auto '>
+      <main className='pt-28 pb-16'>
         <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className='text-center mb-12'>
-            <h2 className='text-4xl md:text-5xl font-semibold text-neutral-900'>
+          <div className='text-center py-8 mb-16 border-b border-black/10  dark:border-white/10 px-4 sm:px-6 lg:px-8 '>
+            <h2 className='text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight'>
               نمونه کارها
             </h2>
-            <p className='text-neutral-600 text-lg max-w-2xl mx-auto mt-4'>
+            <p className='text-neutral-600 dark:text-neutral-300 text-lg md:text-xl max-w-3xl mx-auto mt-6 leading-relaxed'>
               مجموعه‌ای از پروژه‌های موفق که با استفاده از جدیدترین تکنولوژی‌ها
               توسعه یافته‌اند
             </p>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-6 lg:px-8 '>
             {portfolioItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                className='group cursor-pointer bg-white border border-neutral-200 overflow-hidden transition-shadow duration-300 hover:shadow-lg'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className='group cursor-pointer bg-white dark:bg-neutral-950 border border-black/10 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: index * 0.1,
+                  ease: 'easeOut',
+                }}
                 onClick={() => handleItemClick(item)}
               >
-                <div className='relative h-48 overflow-hidden'>
+                <div className='relative h-56 overflow-hidden'>
                   <motion.img
                     src={item.image}
                     alt={item.title}
-                    className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-110'
+                    className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105'
                   />
                   <div className='absolute top-4 right-4'>
-                    <Badge variant='secondary' className='bg-white/90'>
+                    <Badge
+                      variant='secondary'
+                      className='bg-white/95 dark:bg-neutral-950/95 text-neutral-800 dark:text-neutral-200 font-medium px-3 py-1 rounded-full shadow-sm'
+                    >
                       {item.category}
                     </Badge>
                   </div>
                 </div>
 
-                <div className='p-6'>
-                  <h3 className='text-lg font-semibold text-right text-neutral-900'>
+                <div className='p-6 space-y-4'>
+                  <h3 className='text-xl font-semibold text-right text-neutral-900 dark:text-white'>
                     {item.title}
                   </h3>
-                  <p className='text-neutral-600 text-sm mt-2 line-clamp-2 leading-relaxed'>
+                  <p className='text-neutral-600 dark:text-neutral-300 text-sm leading-relaxed line-clamp-2'>
                     {item.description}
                   </p>
 
-                  <div className='flex items-center justify-between mt-4'>
-                    <div className='flex items-center gap-1 text-xs text-neutral-500'>
-                      <Calendar className='w-3 h-3' />
+                  <div className='flex items-center justify-between'>
+                    <div className='flex items-center gap-2 text-xs text-neutral-500 dark:text-neutral-400'>
+                      <Calendar className='w-4 h-4' />
                       {item.completedDate}
                     </div>
                   </div>
 
-                  <div className='flex flex-wrap gap-1 mt-4'>
+                  <div className='flex flex-wrap gap-2'>
                     {item.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant='outline' className='text-xs'>
+                      <Badge
+                        key={tech}
+                        variant='outline'
+                        className='text-xs bg-neutral-100 dark:bg-neutral-800 border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200'
+                      >
                         {tech}
                       </Badge>
                     ))}
                     {item.technologies.length > 3 && (
-                      <Badge variant='outline' className='text-xs'>
+                      <Badge
+                        variant='outline'
+                        className='text-xs bg-neutral-100 dark:bg-neutral-800 border-black/10 dark:border-white/10 text-neutral-700 dark:text-neutral-200'
+                      >
                         +{item.technologies.length - 3}
                       </Badge>
                     )}
                   </div>
 
-                  <div className='flex items-center justify-between mt-4'>
-                    <span className='text-xs text-neutral-500'>
+                  <div className='flex items-center justify-between pt-2'>
+                    <span className='text-xs text-neutral-500 dark:text-neutral-400'>
                       {item.features.length} ویژگی
                     </span>
-                    <span className='text-sm font-medium text-neutral-900'>
+                    <span className='text-sm font-medium text-blue-600 dark:text-blue-400 group-hover:text-blue-500 dark:group-hover:text-blue-300 transition-colors duration-300'>
                       مشاهده جزئیات
                     </span>
                   </div>
