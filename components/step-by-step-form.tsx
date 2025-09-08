@@ -112,7 +112,7 @@ const CartoonCard: React.FC<CartoonCardProps> = ({
 }) => (
   <div
     className={`
-      bg-white border border-neutral-900 rounded-xl p-6
+      bg-white dark:bg-neutral-950 border border-neutral-900 dark:border-neutral-600 rounded-xl p-6
       shadow-sm transition-all duration-300 ease-in-out
       ${className}
     `}
@@ -133,13 +133,13 @@ const CartoonButton: React.FC<CartoonButtonProps> = ({
     transition-all duration-300 ease-in-out
     flex items-center gap-2
     disabled:opacity-50 disabled:cursor-not-allowed
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 dark:focus:ring-neutral-500
   `
 
   const variants = {
-    primary: `${baseClasses} bg-black text-white hover:bg-neutral-800`,
-    outline: `${baseClasses} border border-neutral-300 text-black hover:bg-neutral-100`,
-    success: `${baseClasses} bg-black text-white hover:bg-neutral-800`,
+    primary: `${baseClasses} bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200`,
+    outline: `${baseClasses} border border-neutral-300 dark:border-neutral-600 text-neutral-900 dark:text-neutral-100 hover:bg-neutral-100 dark:hover:bg-neutral-800`,
+    success: `${baseClasses} bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-200`,
   }
 
   return (
@@ -280,10 +280,10 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 نوع توسعه را انتخاب کنید
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 چه نوع تکنولوژی برای پروژه‌تان ترجیح می‌دهید؟
               </p>
             </div>
@@ -299,16 +299,16 @@ const StepByStepForm: React.FC = () => {
                   relative group cursor-pointer transition-all duration-200
                   ${
                     formData.developmentType === type.id
-                      ? 'bg- border-2 border-black/50'
-                      : 'bg-neutral-50 border-2 border-neutral-100 hover:border-neutral-200'
+                      ? 'bg-white dark:bg-neutral-950 border-2 border-neutral-900 dark:border-neutral-600'
+                      : 'bg-neutral-50 dark:bg-white/[0.05] border-2 border-neutral-100 dark:border-white/50 dark:border-1 hover:border-neutral-200 dark:hover:border-neutral-600'
                   }
                   rounded-lg p-4
                 `}
                 >
                   {formData.developmentType === type.id && (
                     <div className='absolute top-3 right-3'>
-                      <div className='w-5 h-5 bg-black rounded-full flex items-center justify-center'>
-                        <Check className='w-3 h-3 text-white' />
+                      <div className='w-5 h-5 bg-neutral-900 dark:bg-neutral-100 rounded-full flex items-center justify-center'>
+                        <Check className='w-3 h-3 text-white dark:text-neutral-900' />
                       </div>
                     </div>
                   )}
@@ -319,24 +319,24 @@ const StepByStepForm: React.FC = () => {
                     w-10 h-10 rounded-lg flex items-center justify-center
                     ${
                       formData.developmentType === type.id
-                        ? 'bg-black'
-                        : 'bg-neutral-200'
+                        ? 'bg-neutral-900 dark:bg-neutral-100'
+                        : 'bg-neutral-200 dark:bg-neutral-700'
                     }
                   `}
                     >
                       <type.icon
                         className={`w-5 h-5 ${
                           formData.developmentType === type.id
-                            ? 'text-white'
-                            : 'text-neutral-500'
+                            ? 'text-white dark:text-neutral-900'
+                            : 'text-neutral-500 dark:text-neutral-400'
                         }`}
                       />
                     </div>
                     <div className='flex-1'>
-                      <h3 className='text-lg font-medium text-neutral-700 mb-1'>
+                      <h3 className='text-lg font-medium text-neutral-700 dark:text-neutral-200 mb-1'>
                         {type.title}
                       </h3>
-                      <p className='text-sm text-neutral-500 leading-relaxed'>
+                      <p className='text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed'>
                         {type.description}
                       </p>
                     </div>
@@ -344,7 +344,7 @@ const StepByStepForm: React.FC = () => {
                 </div>
               ))}
               {errors.developmentType && (
-                <div className='flex items-center gap-2 text-red-500 bg-red-50 p-3 rounded-lg'>
+                <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg'>
                   <AlertCircle className='w-4 h-4' />
                   <p className='text-xs'>{errors.developmentType}</p>
                 </div>
@@ -357,10 +357,10 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 موضوع سایت چیست؟
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 نوع وب‌سایت مورد نظر خود را انتخاب کنید
               </p>
             </div>
@@ -376,16 +376,16 @@ const StepByStepForm: React.FC = () => {
                   relative group cursor-pointer transition-all duration-200
                   ${
                     formData.websiteType === type.id
-                      ? ' border-2 border-black/50'
-                      : 'bg-neutral-50 border-2 border-neutral-100 hover:border-neutral-200'
+                      ? 'bg-white dark:bg-neutral-950 border-2 border-neutral-900 dark:border-neutral-600'
+                      : 'bg-neutral-50 dark:bg-white/[0.05] border-2 border-neutral-100 dark:border-white/50 dark:border-1 hover:border-neutral-200 dark:hover:border-neutral-600'
                   }
                   rounded-lg p-4 h-full
                 `}
                 >
                   {formData.websiteType === type.id && (
                     <div className='absolute top-3 right-3'>
-                      <div className='w-5 h-5 bg-black rounded-full flex items-center justify-center'>
-                        <Check className='w-3 h-3 text-white' />
+                      <div className='w-5 h-5 bg-neutral-900 dark:bg-neutral-100 rounded-full flex items-center justify-center'>
+                        <Check className='w-3 h-3 text-white dark:text-neutral-900' />
                       </div>
                     </div>
                   )}
@@ -396,21 +396,21 @@ const StepByStepForm: React.FC = () => {
                     w-12 h-12 rounded-lg flex items-center justify-center
                     ${
                       formData.websiteType === type.id
-                        ? 'bg-black'
-                        : 'bg-neutral-200'
+                        ? 'bg-neutral-900 dark:bg-neutral-100'
+                        : 'bg-neutral-200 dark:bg-neutral-700'
                     }
                   `}
                     >
                       <type.icon
                         className={`w-6 h-6 ${
                           formData.websiteType === type.id
-                            ? 'text-white'
-                            : 'text-neutral-500'
+                            ? 'text-white dark:text-neutral-900'
+                            : 'text-neutral-500 dark:text-neutral-400'
                         }`}
                       />
                     </div>
                     <div className='flex-1 flex flex-col justify-center'>
-                      <h3 className='text-sm font-medium text-neutral-700 mb-2'>
+                      <h3 className='text-sm font-medium text-neutral-700 dark:text-neutral-200 mb-2'>
                         {type.title}
                       </h3>
                       <div
@@ -418,8 +418,8 @@ const StepByStepForm: React.FC = () => {
                       inline-flex items-center px-2 py-1 rounded-full text-xs font-medium
                       ${
                         formData.websiteType === type.id
-                          ? 'bg-black text-white'
-                          : 'bg-neutral-100 text-neutral-500'
+                          ? 'bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900'
+                          : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400'
                       }
                     `}
                       >
@@ -430,7 +430,7 @@ const StepByStepForm: React.FC = () => {
                 </div>
               ))}
               {errors.websiteType && (
-                <div className='col-span-full flex items-center gap-2 text-red-500 bg-red-50 p-3 rounded-lg'>
+                <div className='col-span-full flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg'>
                   <AlertCircle className='w-4 h-4' />
                   <p className='text-xs'>{errors.websiteType}</p>
                 </div>
@@ -443,10 +443,10 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 تعداد صفحات
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 چند صفحه برای وب‌سایت‌تان نیاز دارید؟
               </p>
             </div>
@@ -462,16 +462,16 @@ const StepByStepForm: React.FC = () => {
                   relative group cursor-pointer transition-all duration-200
                   ${
                     formData.pageCount === count.id
-                      ? ' border-2 border-black/50'
-                      : 'bg-neutral-50 border-2 border-neutral-100 hover:border-neutral-200'
+                      ? 'bg-white dark:bg-neutral-950 border-2 border-neutral-900 dark:border-neutral-600'
+                      : 'bg-neutral-50 dark:bg-white/[0.05] border-2 border-neutral-100 dark:border-white/50 dark:border-1 hover:border-neutral-200 dark:hover:border-neutral-600'
                   }
                   rounded-lg p-4
                 `}
                 >
                   {formData.pageCount === count.id && (
                     <div className='absolute top-3 right-3'>
-                      <div className='w-5 h-5 bg-black rounded-full flex items-center justify-center'>
-                        <Check className='w-3 h-3 text-white' />
+                      <div className='w-5 h-5 bg-neutral-900 dark:bg-neutral-100 rounded-full flex items-center justify-center'>
+                        <Check className='w-3 h-3 text-white dark:text-neutral-900' />
                       </div>
                     </div>
                   )}
@@ -483,20 +483,20 @@ const StepByStepForm: React.FC = () => {
                       w-10 h-10 rounded-lg flex items-center justify-center
                       ${
                         formData.pageCount === count.id
-                          ? 'bg-black'
-                          : 'bg-neutral-200'
+                          ? 'bg-neutral-900 dark:bg-neutral-100'
+                          : 'bg-neutral-200 dark:bg-neutral-700'
                       }
                     `}
                       >
                         <FileText
                           className={`w-5 h-5 ${
                             formData.pageCount === count.id
-                              ? 'text-white'
-                              : 'text-neutral-500'
+                              ? 'text-white dark:text-neutral-900'
+                              : 'text-neutral-500 dark:text-neutral-400'
                           }`}
                         />
                       </div>
-                      <h3 className='text-lg font-medium text-neutral-700'>
+                      <h3 className='text-lg font-medium text-neutral-700 dark:text-neutral-200'>
                         {count.title}
                       </h3>
                     </div>
@@ -505,8 +505,8 @@ const StepByStepForm: React.FC = () => {
                     px-3 py-1 rounded-full text-sm font-medium
                     ${
                       formData.pageCount === count.id
-                        ? 'bg-black text-white'
-                        : 'bg-neutral-100 text-neutral-500'
+                        ? 'bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900'
+                        : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400'
                     }
                   `}
                     >
@@ -516,7 +516,7 @@ const StepByStepForm: React.FC = () => {
                 </div>
               ))}
               {errors.pageCount && (
-                <div className='flex items-center gap-2 text-red-500 bg-red-50 p-3 rounded-lg'>
+                <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg'>
                   <AlertCircle className='w-4 h-4' />
                   <p className='text-xs'>{errors.pageCount}</p>
                 </div>
@@ -529,10 +529,10 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 ویژگی‌های اضافی
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 ویژگی‌های مورد نیاز خود را انتخاب کنید
               </p>
             </div>
@@ -548,16 +548,16 @@ const StepByStepForm: React.FC = () => {
                     relative group cursor-pointer transition-all duration-200
                     ${
                       isSelected
-                        ? 'border-2 border-black/50'
-                        : 'bg-neutral-50 border-2 border-neutral-100 hover:border-neutral-200'
+                        ? 'bg-white dark:bg-neutral-950 border-2 border-neutral-900 dark:border-neutral-600'
+                        : 'bg-neutral-50 dark:bg-white/[0.05] border-2 border-neutral-100 dark:border-white/50 dark:border-1 hover:border-neutral-200 dark:hover:border-neutral-600'
                     }
                     rounded-lg p-4
                   `}
                   >
                     {isSelected && (
                       <div className='absolute top-3 right-3'>
-                        <div className='w-5 h-5 bg-black rounded-full flex items-center justify-center'>
-                          <Check className='w-3 h-3 text-white' />
+                        <div className='w-5 h-5 bg-neutral-900 dark:bg-neutral-100 rounded-full flex items-center justify-center'>
+                          <Check className='w-3 h-3 text-white dark:text-neutral-900' />
                         </div>
                       </div>
                     )}
@@ -567,16 +567,22 @@ const StepByStepForm: React.FC = () => {
                         <div
                           className={`
                         w-10 h-10 rounded-lg flex items-center justify-center
-                        ${isSelected ? 'bg-black' : 'bg-neutral-200'}
+                        ${
+                          isSelected
+                            ? 'bg-neutral-900 dark:bg-neutral-100'
+                            : 'bg-neutral-200 dark:bg-neutral-700'
+                        }
                       `}
                         >
                           <Star
                             className={`w-5 h-5 ${
-                              isSelected ? 'text-white' : 'text-neutral-500'
+                              isSelected
+                                ? 'text-white dark:text-neutral-900'
+                                : 'text-neutral-500 dark:text-neutral-400'
                             }`}
                           />
                         </div>
-                        <h3 className='text-base font-medium text-neutral-700'>
+                        <h3 className='text-base font-medium text-neutral-700 dark:text-neutral-200'>
                           {feature.title}
                         </h3>
                       </div>
@@ -585,8 +591,8 @@ const StepByStepForm: React.FC = () => {
                       px-3 py-1 rounded-full text-sm font-medium
                       ${
                         isSelected
-                          ? 'bg-black text-white'
-                          : 'bg-neutral-100 text-neutral-500'
+                          ? 'bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900'
+                          : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-500 dark:text-neutral-400'
                       }
                     `}
                       >
@@ -604,17 +610,17 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 توضیحات پروژه
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 جزئیات بیشتری از پروژه‌تان برای ما بنویسید
               </p>
             </div>
 
             <div className='max-w-2xl mx-auto space-y-4'>
-              <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-5'>
-                <label className='block text-base font-medium text-neutral-700 mb-3'>
+              <div className='bg-neutral-50 dark:bg-white/[0.05] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-5'>
+                <label className='block text-base font-medium text-neutral-700 dark:text-neutral-200 mb-3'>
                   توضیحات کامل پروژه
                 </label>
                 <textarea
@@ -624,18 +630,18 @@ const StepByStepForm: React.FC = () => {
                     setFormData({ ...formData, description: e.target.value })
                   }
                   rows={4}
-                  className='w-full p-3 border-2 border-neutral-200 rounded-lg focus:border-blue-300 focus:ring-0 transition-all duration-200 resize-none text-neutral-700 placeholder-neutral-400 text-sm'
+                  className='w-full p-3 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:border-green-300 dark:focus:border-green-500 focus:ring-0 transition-all duration-200 text-neutral-700 dark:text-neutral-200 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm'
                 />
                 {errors.description && (
-                  <div className='flex items-center gap-2 text-red-500 bg-red-50 p-3 rounded-lg mt-2'>
+                  <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-3 rounded-lg mt-2'>
                     <AlertCircle className='w-4 h-4' />
                     <p className='text-xs'>{errors.description}</p>
                   </div>
                 )}
               </div>
 
-              <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-5'>
-                <label className='block text-base font-medium text-neutral-700 mb-3'>
+              <div className='bg-neutral-50 dark:bg-white/[0.05] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-5'>
+                <label className='block text-base font-medium text-neutral-700 dark:text-neutral-200 mb-3'>
                   بودجه تقریبی (اختیاری)
                 </label>
                 <input
@@ -645,7 +651,7 @@ const StepByStepForm: React.FC = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, budget: e.target.value })
                   }
-                  className='w-full p-3 border-2 border-neutral-200 rounded-lg focus:border-blue-300 focus:ring-0 transition-all duration-200 text-neutral-700 placeholder-neutral-400 text-sm'
+                  className='w-full p-3 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:border-green-300 dark:focus:border-green-500 focus:ring-0 transition-all duration-200 text-neutral-700 dark:text-neutral-200 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm'
                 />
               </div>
             </div>
@@ -656,31 +662,31 @@ const StepByStepForm: React.FC = () => {
         return (
           <div className='space-y-6'>
             <div className='text-center mb-6'>
-              <h2 className='text-2xl font-semibold text-neutral-800 mb-2'>
+              <h2 className='text-2xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                 قیمت نهایی و ثبت سفارش
               </h2>
-              <p className='text-sm text-neutral-500'>
+              <p className='text-sm text-neutral-500 dark:text-neutral-400'>
                 اطلاعات تماس خود را وارد کنید
               </p>
             </div>
 
             <div className='max-w-4xl mx-auto space-y-6'>
               {/* Price Summary */}
-              <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-6'>
+              <div className='bg-neutral-50 dark:bg-white/[0.02] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-6'>
                 <div className='text-center mb-6'>
-                  <h3 className='text-xl font-semibold text-neutral-800 mb-2'>
+                  <h3 className='text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2'>
                     خلاصه قیمت
                   </h3>
-                  <div className='w-16 h-0.5 bg-green-300 rounded-full mx-auto'></div>
+                  <div className='w-16 h-0.5 bg-green-300 dark:bg-green-500 rounded-full mx-auto'></div>
                 </div>
 
-                <div className='space-y-3 text-neutral-600 text-sm'>
-                  <div className='flex items-center justify-between p-3 bg-white rounded-lg border border-neutral-100'>
+                <div className='space-y-3 text-neutral-600 dark:text-neutral-400 text-sm'>
+                  <div className='flex items-center justify-between p-3 bg-white dark:bg-neutral-950 rounded-lg border border-neutral-100 dark:border-white/50 dark:border-1'>
                     <span className='flex items-center gap-2'>
-                      <Code className='w-4 h-4 text-blue-400' />
+                      <Code className='w-4 h-4 text-blue-400 dark:text-blue-300' />
                       نوع توسعه:
                     </span>
-                    <span className='font-medium'>
+                    <span className='font-medium text-neutral-700 dark:text-neutral-200'>
                       {
                         developmentTypes.find(
                           (t) => t.id === formData.developmentType
@@ -688,24 +694,24 @@ const StepByStepForm: React.FC = () => {
                       }
                     </span>
                   </div>
-                  <div className='flex items-center justify-between p-3 bg-white rounded-lg border border-neutral-100'>
+                  <div className='flex items-center justify-between p-3 bg-white dark:bg-neutral-950 rounded-lg border border-neutral-100 dark:border-white/50 dark:border-1'>
                     <span className='flex items-center gap-2'>
-                      <Globe className='w-4 h-4 text-green-400' />
+                      <Globe className='w-4 h-4 text-green-400 dark:text-green-300' />
                       نوع سایت:
                     </span>
-                    <span className='font-medium'>
+                    <span className='font-medium text-neutral-700 dark:text-neutral-200'>
                       {
                         websiteTypes.find((t) => t.id === formData.websiteType)
                           ?.title
                       }
                     </span>
                   </div>
-                  <div className='flex items-center justify-between p-3 bg-white rounded-lg border border-neutral-100'>
+                  <div className='flex items-center justify-between p-3 bg-white dark:bg-neutral-950 rounded-lg border border-neutral-100 dark:border-white/50 dark:border-1'>
                     <span className='flex items-center gap-2'>
-                      <FileText className='w-4 h-4 text-orange-400' />
+                      <FileText className='w-4 h-4 text-orange-400 dark:text-orange-300' />
                       تعداد صفحات:
                     </span>
-                    <span className='font-medium'>
+                    <span className='font-medium text-neutral-700 dark:text-neutral-200'>
                       {
                         pageCounts.find((p) => p.id === formData.pageCount)
                           ?.title
@@ -713,29 +719,29 @@ const StepByStepForm: React.FC = () => {
                     </span>
                   </div>
                   {formData.features.length > 0 && (
-                    <div className='flex items-center justify-between p-3 bg-white rounded-lg border border-neutral-100'>
+                    <div className='flex items-center justify-between p-3 bg-white dark:bg-neutral-950 rounded-lg border border-neutral-100 dark:border-white/50 dark:border-1'>
                       <span className='flex items-center gap-2'>
-                        <Star className='w-4 h-4 text-purple-400' />
+                        <Star className='w-4 h-4 text-purple-400 dark:text-purple-300' />
                         ویژگی‌های اضافی:
                       </span>
-                      <span className='font-medium'>
+                      <span className='font-medium text-neutral-700 dark:text-neutral-200'>
                         {formData.features.length} مورد
                       </span>
                     </div>
                   )}
                 </div>
 
-                <div className='mt-6 pt-4 border-t-2 border-neutral-200'>
+                <div className='mt-6 pt-4 border-t-2 border-neutral-200 dark:border-white/0 dark:border-1'>
                   <div className='flex justify-between items-center mb-3'>
-                    <span className='text-xl font-semibold text-neutral-800'>
+                    <span className='text-xl font-semibold text-neutral-800 dark:text-neutral-100'>
                       قیمت تقریبی:
                     </span>
-                    <span className='text-2xl font-bold text-green-600'>
+                    <span className='text-2xl font-bold text-green-600 dark:text-green-400'>
                       {formatPrice(calculatePrice())}
                     </span>
                   </div>
-                  <div className='bg-blue-50 border border-blue-200 rounded-lg p-3'>
-                    <p className='text-xs text-blue-600 text-center'>
+                  <div className='bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-3'>
+                    <p className='text-xs text-blue-600 dark:text-blue-300 text-center'>
                       <Info className='w-4 h-4 inline-block ml-1' />
                       قیمت نهایی پس از بررسی دقیق پروژه اعلام خواهد شد
                     </p>
@@ -745,8 +751,8 @@ const StepByStepForm: React.FC = () => {
 
               {/* Contact Form */}
               <div className='grid md:grid-cols-3 gap-4'>
-                <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-4'>
-                  <label className='block text-base font-medium text-neutral-700 mb-3'>
+                <div className='bg-neutral-50 dark:bg-white/[0.02] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-4'>
+                  <label className='block text-base font-medium text-neutral-700 dark:text-neutral-200 mb-3'>
                     نام و نام خانوادگی
                   </label>
                   <input
@@ -762,18 +768,18 @@ const StepByStepForm: React.FC = () => {
                         },
                       })
                     }
-                    className='w-full p-3 border-2 border-neutral-200 rounded-lg focus:border-green-300 focus:ring-0 transition-all duration-200 text-neutral-700 placeholder-neutral-400 text-sm'
+                    className='w-full p-3 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:border-green-300 dark:focus:border-green-500 focus:ring-0 transition-all duration-200 text-neutral-700 dark:text-neutral-200 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm'
                   />
                   {errors.name && (
-                    <div className='flex items-center gap-2 text-red-500 bg-red-50 p-2 rounded-lg mt-2'>
+                    <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-2 rounded-lg mt-2'>
                       <AlertCircle className='w-4 h-4' />
                       <p className='text-xs'>{errors.name}</p>
                     </div>
                   )}
                 </div>
 
-                <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-4'>
-                  <label className='block text-base font-medium text-neutral-700 mb-3'>
+                <div className='bg-neutral-50 dark:bg-white/[0.02] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-4'>
+                  <label className='block text-base font-medium text-neutral-700 dark:text-neutral-200 mb-3'>
                     ایمیل
                   </label>
                   <input
@@ -789,18 +795,18 @@ const StepByStepForm: React.FC = () => {
                         },
                       })
                     }
-                    className='w-full p-3 border-2 border-neutral-200 rounded-lg focus:border-green-300 focus:ring-0 transition-all duration-200 text-neutral-700 placeholder-neutral-400 text-sm'
+                    className='w-full p-3 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:border-green-300 dark:focus:border-green-500 focus:ring-0 transition-all duration-200 text-neutral-700 dark:text-neutral-200 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm'
                   />
                   {errors.email && (
-                    <div className='flex items-center gap-2 text-red-500 bg-red-50 p-2 rounded-lg mt-2'>
+                    <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-2 rounded-lg mt-2'>
                       <AlertCircle className='w-4 h-4' />
                       <p className='text-xs'>{errors.email}</p>
                     </div>
                   )}
                 </div>
 
-                <div className='bg-neutral-50 rounded-lg border-2 border-neutral-100 p-4'>
-                  <label className='block text-base font-medium text-neutral-700 mb-3'>
+                <div className='bg-neutral-50 dark:bg-white/[0.02] rounded-lg border-2 border-neutral-100 dark:border-white/50 dark:border-1 p-4'>
+                  <label className='block text-base font-medium text-neutral-700 dark:text-neutral-200 mb-3'>
                     شماره تماس
                   </label>
                   <input
@@ -816,10 +822,10 @@ const StepByStepForm: React.FC = () => {
                         },
                       })
                     }
-                    className='w-full p-3 border-2 border-neutral-200 rounded-lg focus:border-green-300 focus:ring-0 transition-all duration-200 text-neutral-700 placeholder-neutral-400 text-sm'
+                    className='w-full p-3 border-2 border-neutral-200 dark:border-neutral-600 rounded-lg focus:border-green-300 dark:focus:border-green-500 focus:ring-0 transition-all duration-200 text-neutral-700 dark:text-neutral-200 placeholder-neutral-400 dark:placeholder-neutral-500 text-sm'
                   />
                   {errors.phone && (
-                    <div className='flex items-center gap-2 text-red-500 bg-red-50 p-2 rounded-lg mt-2'>
+                    <div className='flex items-center gap-2 text-red-500 bg-red-50 dark:bg-red-900/30 p-2 rounded-lg mt-2'>
                       <AlertCircle className='w-4 h-4' />
                       <p className='text-xs'>{errors.phone}</p>
                     </div>
@@ -836,7 +842,7 @@ const StepByStepForm: React.FC = () => {
   }
 
   return (
-    <div className='bg-white z-10 relative py-4 sm:p-8 border-y'>
+    <div className='bg-white dark:bg-neutral-950 z-10 relative py-4 sm:p-8 border-y border-neutral-200 dark:border-white/10 dark:border-1'>
       <div className='max-w-4xl mx-auto'>
         <div className='mb-12'>
           <div className='flex items-center justify-between mb-6'>
@@ -848,10 +854,10 @@ const StepByStepForm: React.FC = () => {
                     transition-all duration-300
                     ${
                       currentStep > step.id
-                        ? 'bg-black text-white'
+                        ? 'bg-neutral-900 dark:bg-neutral-100 text-white dark:text-neutral-900'
                         : currentStep === step.id
-                        ? 'bg-white text-black border-2 border-black'
-                        : 'bg-neutral-200 text-neutral-600'
+                        ? 'bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 border-2 border-neutral-900 dark:border-neutral-600'
+                        : 'bg-neutral-200 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400'
                     }
                   `}
                   aria-current={currentStep === step.id ? 'step' : undefined}
@@ -867,7 +873,11 @@ const StepByStepForm: React.FC = () => {
                     className={`
                       flex-1 h-0.5 mx-4
                       transition-colors duration-300
-                      ${currentStep > step.id ? 'bg-black' : 'bg-neutral-200'}
+                      ${
+                        currentStep > step.id
+                          ? 'bg-neutral-900 dark:bg-neutral-100'
+                          : 'bg-neutral-200 dark:bg-neutral-700'
+                      }
                     `}
                   />
                 )}
@@ -881,7 +891,9 @@ const StepByStepForm: React.FC = () => {
                   className={`
                     transition-colors duration-300
                     ${
-                      currentStep >= step.id ? 'text-black' : 'text-neutral-600'
+                      currentStep >= step.id
+                        ? 'text-neutral-900 dark:text-neutral-100'
+                        : 'text-neutral-600 dark:text-neutral-400'
                     }
                   `}
                 >
