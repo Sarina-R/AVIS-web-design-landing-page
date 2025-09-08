@@ -4,15 +4,6 @@ import localFont from 'next/font/local'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Button } from '@/components/ui/button'
 import { ThemeToggle } from '@/components/theme-toggle'
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Instagram,
-  Twitter,
-  Linkedin,
-  Globe,
-} from 'lucide-react'
 import './globals.css'
 import Image from 'next/image'
 
@@ -94,7 +85,7 @@ export default function RootLayout({
                       alt='logo'
                       width={30}
                       height={30}
-                      className='object-contain dark:invert'
+                      className='object-contain invert dark:invert-0'
                     />
                   </div>
                   <span className='text-xl font-bold'>آویس</span>

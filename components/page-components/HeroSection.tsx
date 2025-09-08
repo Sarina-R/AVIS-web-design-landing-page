@@ -135,28 +135,43 @@ const AnimatedHorizontalLine: React.FC<{
 }
 
 interface GlowingLineProps {
-  x: number
-  delay: number
+  x: number // percentage (e.g., 33.3333, 95)
+  delay?: number
+  duration?: number
+  isVisible?: boolean
 }
 
-const GlowingLine: React.FC<GlowingLineProps> = ({ x, delay }) => {
-  const [isVisible, setIsVisible] = useState<boolean>(false)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), delay)
-    return () => clearTimeout(timer)
-  }, [delay])
-
+const GlowingLine: React.FC<GlowingLineProps> = ({
+  x,
+  delay = 0,
+  duration = 2,
+  isVisible = true,
+}) => {
   return (
-    <div
-      className='absolute -top-10 transition-all duration-[2000ms] ease-in-out bg-gradient-to-b from-black/50 via-black/10 to-black/10 dark:from-white/50 dark:via-white/10 dark:to-white/10'
+    <svg
+      className='absolute -top-10 h-[800vh] w-px text-black dark:text-white'
       style={{
         left: `${x}%`,
-        width: '1px',
-        height: isVisible ? '800vh' : '0',
-        transitionProperty: 'height, opacity',
+        transitionDelay: `${delay}ms`,
       }}
-    />
+      viewBox='0 0 1 100'
+      preserveAspectRatio='none'
+    >
+      <line
+        x1='0.5'
+        y1='0'
+        x2='0.5'
+        y2='100'
+        stroke='currentColor'
+        strokeOpacity='0.15'
+        strokeWidth='1'
+        strokeDasharray='0.1,0.2'
+        strokeDashoffset={isVisible ? 0 : 100}
+        style={{
+          transition: `stroke-dashoffset ${duration}s ease-in-out`,
+        }}
+      />
+    </svg>
   )
 }
 
