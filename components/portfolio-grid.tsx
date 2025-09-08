@@ -267,7 +267,7 @@ export function PortfolioGrid() {
       </div>
       <div className='text-center mt-8'>
         <Link href='/showcase'>
-          <button className='bg-black text-white px-6 py-3 rounded-lg hover:bg-black/90 transition-colors absolute -top-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer'>
+          <button className='bg-black dark:bg-white text-white dark:text-black px-6 py-3 rounded-lg hover:bg-black/90 transition-colors absolute -top-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer'>
             مشاهده همه نمونه کارها
           </button>
         </Link>
