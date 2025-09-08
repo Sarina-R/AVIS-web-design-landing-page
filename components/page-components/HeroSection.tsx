@@ -21,9 +21,10 @@ const Button: React.FC<ButtonProps> = ({
     'inline-flex items-center justify-center font-medium transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 rounded-md'
 
   const variants = {
-    default: 'bg-neutral-900 text-white hover:bg-neutral-800',
+    default:
+      'bg-neutral-900 text-white hover:bg-neutral-800 dark:bg-neutral-100 dark:text-neutral-900 dark:hover:bg-neutral-200',
     outline:
-      'border border-dashed border-neutral-300 bg-transparent text-neutral-900 hover:bg-neutral-100',
+      'border border-dashed border-neutral-300 bg-transparent text-neutral-900 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-100 dark:hover:bg-neutral-800',
   }
 
   const sizes = {
@@ -68,7 +69,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
           <stop
             offset='0%'
             style={{
-              stopColor: 'black',
+              stopColor: 'currentColor',
               stopOpacity: isVisible ? 0.2 : 0,
               transition: `stop-opacity ${duration}s ease-in-out`,
             }}
@@ -76,7 +77,7 @@ const AnimatedPath: React.FC<AnimatedPathProps> = ({
           <stop
             offset='100%'
             style={{
-              stopColor: 'black',
+              stopColor: 'currentColor',
               stopOpacity: isVisible ? 1 : 0,
               transition: `stop-opacity ${duration}s ease-in-out`,
             }}
@@ -120,7 +121,7 @@ const AnimatedHorizontalLine: React.FC<{
         y1='0.5'
         x2='100'
         y2='0.5'
-        stroke='black'
+        stroke='currentColor'
         strokeOpacity='0.15'
         strokeWidth='1'
         strokeDasharray='1,0.5'
@@ -148,17 +149,11 @@ const GlowingLine: React.FC<GlowingLineProps> = ({ x, delay }) => {
 
   return (
     <div
-      className='absolute -top-10 transition-all duration-[2000ms] ease-in-out'
+      className='absolute -top-10 transition-all duration-[2000ms] ease-in-out bg-gradient-to-b from-black/50 via-black/10 to-black/10 dark:from-white/50 dark:via-white/10 dark:to-white/10'
       style={{
         left: `${x}%`,
         width: '1px',
         height: isVisible ? '800vh' : '0',
-        background: isVisible
-          ? 'repeating-linear-gradient(to bottom, rgba(0,0,0,0.2) 0px, rgba(0,0,0,0.2) 5px, transparent 5px, transparent 10px)'
-          : 'none',
-        boxShadow: isVisible
-          ? '0 0 8px rgba(255, 255, 255, 0.3), 0 0 16px rgba(255, 255, 255, 0.2)'
-          : 'none',
         transitionProperty: 'height, opacity',
       }}
     />
@@ -185,10 +180,10 @@ const StatItem: React.FC<StatItemProps> = ({ number, label, delay }) => {
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
     >
-      <div className='text-4xl font-semibold text-neutral-900 mb-2'>
+      <div className='text-4xl font-semibold text-neutral-900 dark:text-neutral-100 mb-2'>
         {number}
       </div>
-      <div className='text-neutral-500 text-sm font-medium uppercase'>
+      <div className='text-neutral-500 dark:text-neutral-400 text-sm font-medium uppercase'>
         {label}
       </div>
     </div>
@@ -232,16 +227,16 @@ const HeroSection: React.FC = () => {
   const techStack: string[] = ['Next.js 15', 'WordPress']
 
   return (
-    <section className='relative pb-5 mt-20 border-b'>
+    <section className='relative pb-5 mt-20 border-b border-neutral-200 dark:border-white/10 bg-white dark:bg-neutral-950'>
       <div className='relative'>
-        <div className='absolute left-1/2 top-0 -translate-x-1/2 w-[105%] h-px bg-black/10 z-50' />
+        <div className='absolute left-1/2 top-0 -translate-x-1/2 w-[105%] h-px bg-neutral-200 dark:bg-neutral-700 z-50' />
       </div>
-      <div className='absolute -left-12 -top-12 border border-dashed w-24 h-24 rounded-full border-black/30 border-r-transparent rotate-45 z-50' />
+      <div className='absolute -left-12 -top-12 border border-dashed w-24 h-24 rounded-full border-neutral-300 dark:border-neutral-600 border-r-transparent rotate-45 z-50' />
 
       {/* Background SVG Patterns */}
-      <div className='absolute inset-0 '>
+      <div className='absolute inset-0'>
         <svg
-          className='absolute inset-0 w-full h-full text-neutral-200'
+          className='absolute inset-0 w-full h-full text-neutral-200 dark:text-neutral-700'
           viewBox='0 0 1400 900'
           preserveAspectRatio='xMidYMid slice'
         >
@@ -256,26 +251,28 @@ const HeroSection: React.FC = () => {
 
       <div className='max-w-6xl mx-auto relative z-10'>
         <div className='text-center'>
-          <div className='bg-white'>
+          <div className='bg-white dark:bg-neutral-950'>
             {/* Badge */}
             <div
-              className={`inline-flex items-center gap-2 bg-black px-4 py-2 mt-6 mb-2 rounded-full transition-opacity duration-500 ${
+              className={`inline-flex items-center gap-2 bg-neutral-900 dark:bg-neutral-100 px-4 py-2 mt-6 mb-2 rounded-full transition-opacity duration-500 ${
                 titleVisible ? 'opacity-100' : 'opacity-0'
               }`}
             >
-              <Star className='w-4 h-4 text-white' />
-              <span className='text-sm font-medium text-white'>
+              <Star className='w-4 h-4 text-white dark:text-neutral-900' />
+              <span className='text-sm font-medium text-white dark:text-neutral-900'>
                 بیش از ۱۰۰ پروژه موفق
               </span>
             </div>
             {/* Main Title */}
             <h1
-              className={`text-5xl md:text-6xl font-semibold text-neutral-800 pb-8 leading-tight transition-opacity duration-500 max-w-80 sm:max-w-max mx-auto ${
+              className={`text-5xl md:text-6xl font-semibold text-neutral-800 dark:text-neutral-100 pb-8 leading-tight transition-opacity duration-500 max-w-80 sm:max-w-max mx-auto ${
                 titleVisible ? 'opacity-100' : 'opacity-0'
               }`}
             >
               خدمات طراحی وبسایت {''}
-              <span className='relative inline-block text-black'>AVIS</span>
+              <span className='relative inline-block text-neutral-900 dark:text-neutral-100'>
+                AVIS
+              </span>
             </h1>
           </div>
           {/* line */}
@@ -285,7 +282,7 @@ const HeroSection: React.FC = () => {
 
           {/* Subtitle */}
           <p
-            className={`text-base md:text-xl text-neutral-600 max-w-3xl mx-auto font-medium transition-opacity duration-500 bg-white py-4 ${
+            className={`text-base md:text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto font-medium transition-opacity duration-500 bg-white dark:bg-neutral-950 py-4 ${
               subtitleVisible ? 'opacity-100' : 'opacity-0'
             }`}
           >
@@ -305,12 +302,14 @@ const HeroSection: React.FC = () => {
             {techStack.map((tech: string, index: number) => (
               <div
                 key={tech}
-                className={` px-4 py-2 transition-opacity duration-500`}
+                className={`px-4 py-2 transition-opacity duration-500`}
                 style={{
                   transitionDelay: `${300 + index * 100}ms`,
                 }}
               >
-                <span className='text-xs text-black font-black'>{tech}</span>
+                <span className='text-xs text-neutral-900 dark:text-neutral-100 font-black'>
+                  {tech}
+                </span>
               </div>
             ))}
           </div>
@@ -332,7 +331,7 @@ const HeroSection: React.FC = () => {
             <Button variant='outline' size='lg' className='w-[80%] m-auto'>
               <span> نمونه کارها</span>
             </Button>
-            <div className='absolute -right-10 -bottom-18 border w-16 h-16 rounded-full border-black/30 border-l-transparent rotate-45 z-50' />
+            <div className='absolute -right-10 -bottom-18 border w-16 h-16 rounded-full border-neutral-300 dark:border-neutral-600 border-l-transparent rotate-45 z-50' />
           </div>
           {/* line */}
           <div className='relative'>
