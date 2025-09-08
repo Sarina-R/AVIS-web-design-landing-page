@@ -152,9 +152,9 @@ const Badge = ({
   const baseStyles =
     'inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium'
   const variants = {
-    default: 'bg-gray-200 text-gray-800',
-    secondary: 'bg-gray-300 text-gray-900',
-    outline: 'border border-gray-400 bg-white text-gray-700',
+    default: 'bg-neutral-200 text-neutral-800',
+    secondary: 'bg-neutral-300 text-neutral-900',
+    outline: 'border border-neutral-400 bg-white text-neutral-700',
   }
 
   return (
@@ -179,7 +179,7 @@ const Button = ({
   const Component = asChild ? 'div' : 'button'
   return (
     <Component
-      className={`inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-700 transition-colors font-medium ${className}`}
+      className={`inline-flex items-center justify-center px-4 py-2 bg-neutral-900 text-white rounded-lg hover:bg-neutral-700 transition-colors font-medium ${className}`}
       {...props}
     >
       {children}
@@ -187,7 +187,6 @@ const Button = ({
   )
 }
 
-// Custom hook to detect mobile
 const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false)
 
@@ -218,7 +217,7 @@ const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
 
   const content = (
     <div className='space-y-6'>
-      <div className='aspect-video rounded-lg overflow-hidden bg-gray-100'>
+      <div className='aspect-video rounded-lg overflow-hidden bg-neutral-100'>
         <img
           src={item.image}
           alt={item.title}
@@ -229,17 +228,17 @@ const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
       <div className='space-y-4'>
         <div className='flex items-center gap-2 flex-wrap'>
           <Badge variant='secondary'>{item.category}</Badge>
-          <div className='flex items-center gap-1 text-sm text-gray-500'>
+          <div className='flex items-center gap-1 text-sm text-neutral-500'>
             <Calendar className='w-4 h-4' />
             {item.completedDate}
           </div>
         </div>
 
-        <p className='text-gray-600 leading-relaxed'>{item.description}</p>
+        <p className='text-neutral-600 leading-relaxed'>{item.description}</p>
 
         <div className='space-y-3'>
           <div className='flex items-center gap-2'>
-            <Code className='w-4 h-4 text-gray-900' />
+            <Code className='w-4 h-4 text-neutral-900' />
             <span className='font-medium'>تکنولوژی‌های استفاده شده:</span>
           </div>
           <div className='flex flex-wrap gap-2'>
@@ -253,16 +252,16 @@ const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
 
         <div className='space-y-3'>
           <div className='flex items-center gap-2'>
-            <Palette className='w-4 h-4 text-gray-900' />
+            <Palette className='w-4 h-4 text-neutral-900' />
             <span className='font-medium'>ویژگی‌های کلیدی:</span>
           </div>
           <ul className='space-y-2'>
             {item.features.map((feature, index) => (
               <li
                 key={index}
-                className='flex items-start gap-2 text-sm text-gray-600'
+                className='flex items-start gap-2 text-sm text-neutral-600'
               >
-                <div className='w-1.5 h-1.5 bg-gray-900 rounded-full mt-2 flex-shrink-0' />
+                <div className='w-1.5 h-1.5 bg-neutral-900 rounded-full mt-2 flex-shrink-0' />
                 {feature}
               </li>
             ))}
@@ -300,16 +299,16 @@ const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
               transition={{ type: 'spring', damping: 30, stiffness: 300 }}
               className='fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl z-50 max-h-[90vh] overflow-hidden'
             >
-              <div className='p-4 border-b border-gray-200'>
+              <div className='p-4 border-b border-neutral-200'>
                 <div className='flex items-center justify-between'>
-                  <h2 className='text-lg font-semibold text-right flex-1 text-gray-900'>
+                  <h2 className='text-lg font-semibold text-right flex-1 text-neutral-900'>
                     {item.title}
                   </h2>
                   <button
                     onClick={() => onOpenChange(false)}
-                    className='p-2 hover:bg-gray-200 rounded-full'
+                    className='p-2 hover:bg-neutral-200 rounded-full'
                   >
-                    <X className='w-5 h-5 text-gray-900' />
+                    <X className='w-5 h-5 text-neutral-900' />
                   </button>
                 </div>
               </div>
@@ -341,16 +340,16 @@ const PortfolioModal = ({ item, open, onOpenChange }: PortfolioModalProps) => {
             className='bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-hidden'
             onClick={(e) => e.stopPropagation()}
           >
-            <div className='p-6 border-b border-gray-200'>
+            <div className='p-6 border-b border-neutral-200'>
               <div className='flex items-center justify-between'>
-                <h2 className='text-xl font-semibold text-right flex-1 text-gray-900'>
+                <h2 className='text-xl font-semibold text-right flex-1 text-neutral-900'>
                   {item.title}
                 </h2>
                 <button
                   onClick={() => onOpenChange(false)}
-                  className='p-2 hover:bg-gray-200 rounded-full'
+                  className='p-2 hover:bg-neutral-200 rounded-full'
                 >
-                  <X className='w-5 h-5 text-gray-900' />
+                  <X className='w-5 h-5 text-neutral-900' />
                 </button>
               </div>
             </div>
@@ -389,10 +388,10 @@ const Page = () => {
           transition={{ duration: 0.5 }}
         >
           <div className='text-center mb-12'>
-            <h2 className='text-4xl md:text-5xl font-semibold text-gray-900'>
+            <h2 className='text-4xl md:text-5xl font-semibold text-neutral-900'>
               نمونه کارها
             </h2>
-            <p className='text-gray-600 text-lg max-w-2xl mx-auto mt-4'>
+            <p className='text-neutral-600 text-lg max-w-2xl mx-auto mt-4'>
               مجموعه‌ای از پروژه‌های موفق که با استفاده از جدیدترین تکنولوژی‌ها
               توسعه یافته‌اند
             </p>
@@ -402,7 +401,7 @@ const Page = () => {
             {portfolioItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                className='group cursor-pointer bg-white border border-gray-200 overflow-hidden transition-shadow duration-300 hover:shadow-lg'
+                className='group cursor-pointer bg-white border border-neutral-200 overflow-hidden transition-shadow duration-300 hover:shadow-lg'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -422,15 +421,15 @@ const Page = () => {
                 </div>
 
                 <div className='p-6'>
-                  <h3 className='text-lg font-semibold text-right text-gray-900'>
+                  <h3 className='text-lg font-semibold text-right text-neutral-900'>
                     {item.title}
                   </h3>
-                  <p className='text-gray-600 text-sm mt-2 line-clamp-2 leading-relaxed'>
+                  <p className='text-neutral-600 text-sm mt-2 line-clamp-2 leading-relaxed'>
                     {item.description}
                   </p>
 
                   <div className='flex items-center justify-between mt-4'>
-                    <div className='flex items-center gap-1 text-xs text-gray-500'>
+                    <div className='flex items-center gap-1 text-xs text-neutral-500'>
                       <Calendar className='w-3 h-3' />
                       {item.completedDate}
                     </div>
@@ -450,10 +449,10 @@ const Page = () => {
                   </div>
 
                   <div className='flex items-center justify-between mt-4'>
-                    <span className='text-xs text-gray-500'>
+                    <span className='text-xs text-neutral-500'>
                       {item.features.length} ویژگی
                     </span>
-                    <span className='text-sm font-medium text-gray-900'>
+                    <span className='text-sm font-medium text-neutral-900'>
                       مشاهده جزئیات
                     </span>
                   </div>

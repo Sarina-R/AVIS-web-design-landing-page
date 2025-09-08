@@ -217,28 +217,28 @@ export function PortfolioGrid() {
             />
             <div className='absolute inset-0 bg-black/0 hover:bg-black/20 transition-colors duration-300 flex items-center justify-center'>
               <div className='opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3'>
-                <Eye className='w-5 h-5 text-gray-800' />
+                <Eye className='w-5 h-5 text-neutral-800' />
               </div>
             </div>
-            <div className='absolute inset-0 bg-transparent hover:bg-gray-900/80 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 p-4'>
+            <div className='absolute inset-0 bg-transparent hover:bg-neutral-900/80 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 p-4'>
               <div className='text-white'>
                 <div className='flex items-center justify-between mb-2'>
                   <Badge
                     variant='secondary'
-                    className='text-xs bg-gray-700 text-white'
+                    className='text-xs bg-neutral-700 text-white'
                   >
                     {item.category}
                   </Badge>
                   {item.liveUrl && (
                     <Link href={item.liveUrl} target='_blank'>
-                      <ExternalLink className='w-4 h-4 text-gray-200' />
+                      <ExternalLink className='w-4 h-4 text-neutral-200' />
                     </Link>
                   )}
                 </div>
                 <h3 className='font-semibold text-lg mb-2 hover:text-blue-400 transition-colors'>
                   {item.title}
                 </h3>
-                <p className='text-gray-200 text-sm line-clamp-2 mb-4'>
+                <p className='text-neutral-200 text-sm line-clamp-2 mb-4'>
                   {item.description}
                 </p>
                 <div className='flex flex-wrap gap-1'>
@@ -246,7 +246,7 @@ export function PortfolioGrid() {
                     <Badge
                       key={tech}
                       variant='outline'
-                      className='text-xs border-gray-400 text-gray-100'
+                      className='text-xs border-neutral-400 text-neutral-100'
                     >
                       {tech}
                     </Badge>
@@ -254,7 +254,7 @@ export function PortfolioGrid() {
                   {item.technologies.length > 3 && (
                     <Badge
                       variant='outline'
-                      className='text-xs border-gray-400 text-gray-100'
+                      className='text-xs border-neutral-400 text-neutral-100'
                     >
                       +{item.technologies.length - 3}
                     </Badge>

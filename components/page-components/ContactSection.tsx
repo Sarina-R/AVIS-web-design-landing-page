@@ -22,7 +22,7 @@ const ContactSection = () => {
           <h2 className='text-3xl sm:text-4xl font-extrabold text-black mb-4'>
             تماس با ما
           </h2>
-          <p className='text-lg text-gray-600 max-w-80 mx-auto'>
+          <p className='text-lg text-neutral-600 max-w-80 mx-auto'>
             آماده پاسخگویی به سوالات شما و شروع پروژه‌تان هستیم
           </p>
         </div>
@@ -36,36 +36,36 @@ const ContactSection = () => {
               </h3>
               <div className='space-y-6'>
                 <div className='flex items-center gap-4'>
-                  <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center'>
+                  <div className='w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center'>
                     <Phone className='w-6 h-6 text-black' aria-hidden='true' />
                   </div>
                   <div>
                     <h4 className='font-semibold text-base text-black'>
                       تلفن تماس
                     </h4>
-                    <p className='text-gray-600'>۰۲۱-۱۲۳۴۵۶۷۸</p>
+                    <p className='text-neutral-600'>۰۲۱-۱۲۳۴۵۶۷۸</p>
                   </div>
                 </div>
 
                 <div className='flex items-center gap-4'>
-                  <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center'>
+                  <div className='w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center'>
                     <Mail className='w-6 h-6 text-black' aria-hidden='true' />
                   </div>
                   <div>
                     <h4 className='font-semibold text-base text-black'>
                       ایمیل
                     </h4>
-                    <p className='text-gray-600'>info@avis.ir</p>
+                    <p className='text-neutral-600'>info@avis.ir</p>
                   </div>
                 </div>
 
                 <div className='flex items-center gap-4'>
-                  <div className='w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center'>
+                  <div className='w-12 h-12 bg-neutral-100 rounded-full flex items-center justify-center'>
                     <MapPin className='w-6 h-6 text-black' aria-hidden='true' />
                   </div>
                   <div>
                     <h4 className='font-semibold text-base text-black'>آدرس</h4>
-                    <p className='text-gray-600'>
+                    <p className='text-neutral-600'>
                       تهران، خیابان ولیعصر، پلاک ۱۲۳
                     </p>
                   </div>
@@ -80,28 +80,28 @@ const ContactSection = () => {
               <div className='flex gap-3'>
                 <a
                   href='#'
-                  className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
+                  className='w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
                   aria-label='اینستاگرام'
                 >
                   <Instagram className='w-5 h-5' />
                 </a>
                 <a
                   href='#'
-                  className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
+                  className='w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
                   aria-label='توییتر'
                 >
                   <Twitter className='w-5 h-5' />
                 </a>
                 <a
                   href='#'
-                  className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
+                  className='w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
                   aria-label='لینکدین'
                 >
                   <Linkedin className='w-5 h-5' />
                 </a>
                 <a
                   href='#'
-                  className='w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
+                  className='w-10 h-10 bg-neutral-100 rounded-full flex items-center justify-center hover:bg-black hover:text-white transition-colors duration-200'
                   aria-label='گیتهاب'
                 >
                   <Github className='w-5 h-5' />
@@ -116,15 +116,15 @@ const ContactSection = () => {
               <div className='space-y-2 text-sm'>
                 <div className='flex justify-between'>
                   <span className='text-black'>شنبه تا چهارشنبه:</span>
-                  <span className='text-gray-600'>۹:۰۰ - ۱۸:۰۰</span>
+                  <span className='text-neutral-600'>۹:۰۰ - ۱۸:۰۰</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-black'>پنج‌شنبه:</span>
-                  <span className='text-gray-600'>۹:۰۰ - ۱۳:۰۰</span>
+                  <span className='text-neutral-600'>۹:۰۰ - ۱۳:۰۰</span>
                 </div>
                 <div className='flex justify-between'>
                   <span className='text-black'>جمعه:</span>
-                  <span className='text-gray-600'>تعطیل</span>
+                  <span className='text-neutral-600'>تعطیل</span>
                 </div>
               </div>
             </div>
@@ -147,7 +147,7 @@ const ContactSection = () => {
                   <Input
                     id='firstName'
                     placeholder='نام شما'
-                    className='mt-1 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                    className='mt-1 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                     aria-required='true'
                   />
                 </div>
@@ -161,7 +161,7 @@ const ContactSection = () => {
                   <Input
                     id='lastName'
                     placeholder='نام خانوادگی شما'
-                    className='mt-1 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                    className='mt-1 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                     aria-required='true'
                   />
                 </div>
@@ -178,7 +178,7 @@ const ContactSection = () => {
                   id='email'
                   type='email'
                   placeholder='example@email.com'
-                  className='mt-1 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                  className='mt-1 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                   aria-required='true'
                 />
               </div>
@@ -193,7 +193,7 @@ const ContactSection = () => {
                 <Input
                   id='phone'
                   placeholder='۰۹۱۲۳۴۵۶۷۸۹'
-                  className='mt-1 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                  className='mt-1 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                 />
               </div>
 
@@ -207,7 +207,7 @@ const ContactSection = () => {
                 <Input
                   id='subject'
                   placeholder='موضوع پیام شما'
-                  className='mt-1 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                  className='mt-1 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                   aria-required='true'
                 />
               </div>
@@ -222,14 +222,14 @@ const ContactSection = () => {
                 <Textarea
                   id='message'
                   placeholder='پیام خود را اینجا بنویسید...'
-                  className='mt-1 min-h-28 border-gray-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
+                  className='mt-1 min-h-28 border-neutral-300 focus:ring-2 focus:ring-black focus:border-black rounded-md'
                   aria-required='true'
                 />
               </div>
 
               <Button
                 type='submit'
-                className='w-full bg-black text-white hover:bg-gray-900 focus:ring-2 focus:ring-black rounded-md py-2 flex items-center justify-center gap-2'
+                className='w-full bg-black text-white hover:bg-neutral-900 focus:ring-2 focus:ring-black rounded-md py-2 flex items-center justify-center gap-2'
                 aria-label='ارسال پیام'
               >
                 ارسال پیام
