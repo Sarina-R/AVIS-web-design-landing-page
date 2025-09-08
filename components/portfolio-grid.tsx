@@ -203,7 +203,7 @@ export function PortfolioGrid() {
 
   return (
     <div className='min-h-screen p-6 relative'>
-      <div className='grid grid-cols-8 gap-4 auto-rows-min absolute -right-50 left-0 w-[120vw]'>
+      <div className='grid grid-cols-8 gap-4 auto-rows-min absolute sm:-right-50 -left-5 sm:left-0 w-[120vw]'>
         {portfolioItems.map((item) => (
           <div
             key={item.id}
@@ -267,7 +267,7 @@ export function PortfolioGrid() {
       </div>
       <div className='text-center mt-8'>
         <Link href='/showcase'>
-          <button className='bg-black text-white px-6 py-3 rounded-lg hover:bg-black/90 transition-colors absolute -top-10 left-[40%] cursor-pointer'>
+          <button className='bg-black text-white px-6 py-3 rounded-lg hover:bg-black/90 transition-colors absolute -top-5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer'>
             مشاهده همه نمونه کارها
           </button>
         </Link>
