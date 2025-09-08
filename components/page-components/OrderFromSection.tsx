@@ -3,11 +3,14 @@ import StepByStepForm from '../step-by-step-form'
 
 const OrderFromSection = () => {
   return (
-    <section id='services' className='py-24 bg-white border-t'>
+    <section
+      id='services'
+      className='py-24 bg-white dark:bg-neutral-950 border-t'
+    >
       <div className='max-w-6xl mx-auto px-8 lg:px-0'>
         <div className='text-center mb-20'>
           <h2 className='text-4xl md:text-5xl font-bold mb-6'>سفارش پروژه</h2>
-          <p className='text-xl text-black/60 max-w-80 mx-auto'>
+          <p className='text-xl text-black/60 dark:text-white/60 max-w-80 mx-auto'>
             با تکمیل فرم زیر، قیمت تقریبی پروژه‌تان را دریافت کنید و سفارش خود
             را ثبت نمایید
           </p>
