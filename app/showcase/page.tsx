@@ -187,7 +187,7 @@ const Page = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
         >
-          <div className='text-center py-8 mb-16 border-b border-black/10  dark:border-white/10 px-4 sm:px-6 lg:px-8 '>
+          <div className='text-center py-8 border-b border-black/10  dark:border-white/10 px-4 sm:px-6 lg:px-8 '>
             <h2 className='text-4xl md:text-5xl font-bold text-neutral-900 dark:text-white tracking-tight'>
               نمونه کارها
             </h2>
@@ -197,11 +197,11 @@ const Page = () => {
             </p>
           </div>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 px-4 sm:px-6 lg:px-8 '>
+          <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  '>
             {portfolioItems.map((item, index) => (
               <motion.div
                 key={item.id}
-                className='group cursor-pointer bg-white dark:bg-neutral-950 border border-black/10 dark:border-white/10 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1'
+                className='group cursor-pointer bg-white dark:bg-neutral-950 border border-black/10 dark:border-white/10 overflow-hidden transition-all duration-300 '
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
